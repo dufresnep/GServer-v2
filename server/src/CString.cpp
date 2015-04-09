@@ -54,7 +54,7 @@ CString::CString(double pDouble)
 : buffer(0), buffc(0), sizec(0), readc(0), writec(0)
 {
 	char tempBuff[32];
-	sprintf(tempBuff, "%f", pDouble);
+	sprintf_s(tempBuff, 32, "%f", pDouble);
 	*this = tempBuff;
 }
 
@@ -62,7 +62,7 @@ CString::CString(float pFloat)
 : buffer(0), buffc(0), sizec(0), readc(0), writec(0)
 {
 	char tempBuff[32];
-	sprintf(tempBuff, "%.2f", pFloat);
+	sprintf_s(tempBuff, 32, "%.2f", pFloat);
 	*this = tempBuff;
 }
 
@@ -70,7 +70,7 @@ CString::CString(int pInteger)
 : buffer(0), buffc(0), sizec(0), readc(0), writec(0)
 {
 	char tempBuff[32];
-	sprintf(tempBuff, "%i", pInteger);
+	sprintf_s(tempBuff, 32, "%i", pInteger);
 	*this = tempBuff;
 }
 
@@ -78,7 +78,7 @@ CString::CString(unsigned int pUInteger)
 : buffer(0), buffc(0), sizec(0), readc(0), writec(0)
 {
 	char tempBuff[32];
-	sprintf(tempBuff, "%u", pUInteger);
+	sprintf_s(tempBuff, 32, "%u", pUInteger);
 	*this = tempBuff;
 }
 
@@ -86,7 +86,7 @@ CString::CString(long pLInteger)
 : buffer(0), buffc(0), sizec(0), readc(0), writec(0)
 {
 	char tempBuff[32];
-	sprintf(tempBuff, "%ld", pLInteger);
+	sprintf_s(tempBuff, 32, "%ld", pLInteger);
 	*this = tempBuff;
 }
 
@@ -94,7 +94,7 @@ CString::CString(unsigned long pLUInteger)
 : buffer(0), buffc(0), sizec(0), readc(0), writec(0)
 {
 	char tempBuff[32];
-	sprintf(tempBuff, "%lu", pLUInteger);
+	sprintf_s(tempBuff, 32, "%lu", pLUInteger);
 	*this = tempBuff;
 }
 
@@ -102,7 +102,7 @@ CString::CString(long long pLLInteger)
 : buffer(0), buffc(0), sizec(0), readc(0), writec(0)
 {
 	char tempBuff[64];
-	sprintf(tempBuff, "%lld", pLLInteger);
+	sprintf_s(tempBuff, 64, "%lld", pLLInteger);
 	*this = tempBuff;
 }
 
@@ -110,7 +110,7 @@ CString::CString(unsigned long long pLLUInteger)
 : buffer(0), buffc(0), sizec(0), readc(0), writec(0)
 {
 	char tempBuff[64];
-	sprintf(tempBuff, "%llu", pLLUInteger);
+	sprintf_s(tempBuff, 64, "%llu", pLLUInteger);
 	*this = tempBuff;
 }
 

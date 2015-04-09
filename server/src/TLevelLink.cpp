@@ -16,7 +16,7 @@ TLevelLink::TLevelLink(const std::vector<CString>& pLink)
 CString TLevelLink::getLinkStr()
 {
 	static char retVal[500];
-	sprintf(retVal, "%s %i %i %i %i %s %s", newLevel.text(), x, y, width, height, newX.text(), newY.text());
+	sprintf_s(retVal, 500, "%s %i %i %i %i %s %s", newLevel.text(), x, y, width, height, newX.text(), newY.text());
 	return retVal;
 }
 

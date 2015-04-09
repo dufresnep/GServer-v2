@@ -18,7 +18,7 @@ TLevelChest::TLevelChest(const std::vector<CString>& pChest)
 CString TLevelChest::getChestStr(const CString pLevelName)  const
 {
 	static char retVal[500];
-	sprintf(retVal, "%i:%i:%s", x, y, pLevelName.text());
+	sprintf_s(retVal, 500, "%i:%i:%s", x, y, pLevelName.text());
 	return retVal;
 }
 
