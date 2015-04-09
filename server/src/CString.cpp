@@ -148,7 +148,7 @@ bool CString::load(const CString& pString)
 	}
 
 	// Open the file now.
-	file = _wfopen(wcstr, L"rb");
+	_wfopen_s(&file,wcstr, L"rb");
 	delete[] wcstr;
 	if (file == 0)
 		return false;
@@ -190,7 +190,7 @@ bool CString::save(const CString& pString) const
 	}
 
 	// Open the file now.
-	file = _wfopen(wcstr, L"wb");
+	_wfopen_s(&file, wcstr, L"wb");
 	delete[] wcstr;
 	if (file == 0)
 		return false;
