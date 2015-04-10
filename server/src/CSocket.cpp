@@ -731,7 +731,7 @@ int CSocket::setType(int sock_type)
 int CSocket::setDescription(const char *strDescription)
 {
 	memset((void*)&properties.description, 0, SOCKET_MAX_DESCRIPTION);
-	strncpy(properties.description, strDescription, MIN(strlen(strDescription), SOCKET_MAX_DESCRIPTION - 1));
+	strncpy_s(properties.description, strDescription, MIN(strlen(strDescription), SOCKET_MAX_DESCRIPTION - 1));
 	return SOCKET_OK;
 }
 
@@ -939,7 +939,7 @@ const char* errorMessage(int error)
 			//#ifdef __GNUC__
 			//	__gnu_cxx::snprintf(buf, 32, "%d", error);
 			//#else
-				snprintf(buf, 32, "%d", error);
+				_snprintf_s(buf, 32, "%d", error);
 			//#endif 
 			return buf;
 		}

@@ -582,12 +582,13 @@ std::vector<CString> CString::tokenize(const CString& pString) const
 {
 	CString retVal(*this);
 	std::vector<CString> strList;
-	char *tok = strtok(retVal.text(), pString.text());
+	char *next_token = NULL;
+	char *tok = strtok_s(retVal.text(), pString.text(), &next_token);
 
 	while (tok != 0)
 	{
 		strList.push_back(tok);
-		tok = strtok(0, pString.text());
+		tok = strtok_s(0, pString.text(), &next_token);
 	}
 
 	return strList;

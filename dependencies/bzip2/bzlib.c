@@ -1420,7 +1420,7 @@ BZFILE * bzopen_or_bzdopen
    if (open_mode==0) {
       if (path==NULL || strcmp(path,"")==0) {
         fp = (writing ? stdout : stdin);
-        SET_BINARY_MODE(fp);
+		_setmode(fp, _O_BINARY);
       } else {
         fp = fopen(path,mode2);
       }
@@ -1428,7 +1428,7 @@ BZFILE * bzopen_or_bzdopen
 #ifdef BZ_STRICT_ANSI
       fp = NULL;
 #else
-      fp = fdopen(fd,mode2);
+      fp = _fdopen(fd,mode2);
 #endif
    }
    if (fp == NULL) return NULL;

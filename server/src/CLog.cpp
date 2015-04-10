@@ -39,7 +39,7 @@ CLog::CLog(const CString& _file, bool _enabled)
 
 	// Open the file now.
 	if (enabled)
-		file = fopen((homepath + filename).text(), "a");
+		fopen_s(&file,(homepath + filename).text(), "a");
 	if (0 == file)
 		enabled = false;
 }
@@ -127,7 +127,7 @@ void CLog::clear()
 #endif
 	if (file) fclose(file);
 
-	file = fopen((homepath + filename).text(), "w");
+	fopen_s(&file,(homepath + filename).text(), "w");
 	if (0 == file) enabled = false;
 	else enabled = true;
 }
@@ -164,7 +164,7 @@ void CLog::setFilename(const CString& filename)
 	if (file) fclose(file);
 
 	this->filename = filename;
-	file = fopen((homepath + filename).text(), "a");
+	fopen_s(&file,(homepath + filename).text(), "a");
 	if (0 == file) enabled = false;
 	else enabled = true;
 }
