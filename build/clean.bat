@@ -1,2 +1,2 @@
-premake4.exe %* clean
+premake5.exe %* clean
 pause
