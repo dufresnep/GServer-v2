@@ -1,5 +1,68 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   Changelog for:
+    v2.4.1b1, oh well make that v2.5.0b1
+
+  * bug fix, + new feature, o other
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Fix a GMap related bug (still need NPC Server to work)
+* Fix tokenizing strings that contained white space between tokens.
+* Possibly fixed a bug with NPC gmap location.
+* Fixed a Linux compile bug related to global messaging.
+* writeGInt5 was done incorrectly the first time around.  This was causing the RC file browser to not function properly, and possibly other things.
+* Fixed a bug with the join command. (Found by Tricxta)
+* Fix NPC property IDs.
+* Some changes to try to fix the global messaging.
+* Disabled UPDATECLASS and UPDATEPACKAGES for now, since the functions make the Clients crash for some reason.
+* Found out that all external players from other servers have the playerids 16000 and up. This list of "players" is unique to each player and requires some thinking on how to go forward with it. Someone elses buddies from another server shouldn't show up for everyone!
+* PLI_UNKNOWN161 turns out to be a GS2 bytecode class-request. 
+* Some fixes for v4 and up.
+* fix Clog::out segfaults on Linux by wrapping vprintf functions in va_start,va_end
+* targets Windows XP (-DWINVER=0x0501) for removing freeaddrinfo linking error
+* When trimming scripts, don't overwrite the original source.  This prevents trimmed scripts from being saved back to the file.
+* Fixed a bug with CString that broke all the packets.
+* Fixed a crash involving UPNP when shutting down the gserver.
+* Fixed an issue where spawned baddies could crash the server.
+* Fixed the premake project for Linux, MacOSX, BSD, and Solaris.
+* Fixed a bug where the default shield/sword/bodies were being allowed to be set improperly.  For example, setting sword1.png as your shield.
+* Worked around some client bugs involving baddies.
+* Fixed an issue with timestamps.
+* Removed the zlib "bit length overflow" debug message.  Again. (need to be redone!)
+* GServer wasn't properly trimming NPC code.
+* Possibly fixed gr.updatelevel to correctly update singleplayer levels.
+* Fixed an issue with --no-boost.
+* Properly link to boost on BSD, MacOSX, and Solaris.
++ Added the multiline rcmessage.txt support as it seems like it didn't get added last time...
++ Adding tricxta's tileRespawn suggestion.
++ Changed the "homepath" obtaining function to use GetCurrentDirectory (working directory) instead of using the executable directory.
++ Added a UPNP preprocessor flag that allows universal plug and play to not be compiled with the server.  Also added another .bat file for Visual Studio 2010 for no UPNP.
++ Updated the server > client packet enumeration to include values that're valid packets in 5.07
++ Added latest version of v6 to the code.
++ Added function to retrieve the users owned servers to the serverlist (v5 and up).
++ Added the "class_bytecode"-folder to the default-server.
++ Added a function for the GS2 bytecode class request based on the file-request (as the request check the modtime). Tries to fetch the class from the "class_bytecode"-folder. This is somewhat broken and makes the client freeze.
++ Found the prop-packet that tells the client if a player is local or on another server. Can be found in TPlayerProps.cpp on line 323.
++ Added a helpful no-boost batch file.
++ Added version number for latest Graal v6.
++ Added the gr.readfile triggeraction hack as requested by tricxta.
++ Added the /refreshfilesystem RC command.  It reloads the server's file list.
++ Found the PLO_MOVE packet. Added the //#BLOCKPOSITIONUPDATES script command.  It blocks NPC position updates for that specific NPC. Added gr.npc.move triggeraction hack for sending serverside move packets. Added gr.npc.setpos triggeraction hack for positioning an NPC that blocks position updates.
++ Add timestamps to log messages.
++ Added gr.fullhearts triggeraction.
++ Added the startlevel, startx, and starty server options.
+o Update to premake5 alpha
+o bump zlib from 1.2.7 to 1.2.8 (removing the overflow trace removing that will need to be readded again)
+o Updated packet enums with new information.
+o Hide the bit length overflow zlib errors. (Sep. 16 2013)
+o Updated the list of server > client packet IDs with 6.037 compatibility notes, as well as one new ID.
+o Updated the rest of the read/write functions to use the exact way the clients read/write data.  As a result, maximum values for all of them
+o Add premake4 binary for Linux (July 2012)
+o Updated bzip2, zlib, and miniupnp to the latest versions.
+(June 19, 2012)
+o Added a document that contains NPC-Server information for people trying to build an NPC-Server.
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Changelog for:
     v2.4.0
 
   * bug fix, + new feature, o other
